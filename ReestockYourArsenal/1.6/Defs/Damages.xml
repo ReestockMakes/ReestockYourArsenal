@@ -1,0 +1,46 @@
+﻿<Defs>
+  <DamageDef Name="Beam">
+    <defName>Reestock_Blowtorch</defName>
+    <label>blowtorch</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been blowtorched to death.</deathMessage>
+    <hediff>Reestock_BlowtorchWound</hediff>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Heat</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <defaultDamage>5</defaultDamage>
+    <defaultArmorPenetration>0.5</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>0.5</buildingDamageFactorPassable>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>Reestock_BlowtorchWound</defName>
+    <label>blowtorch burn</label>
+    <labelNoun>a blowtorch burn</labelNoun>
+    <description>A blowtorch burn.</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>old blowtorch wound</permanentLabel>
+        <instantlyPermanentLabel>permanent blowtorch injury</instantlyPermanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <bleedRate>0.06</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Burned off</destroyedLabel>
+      <destroyedOutLabel>Burned out</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+</Defs>

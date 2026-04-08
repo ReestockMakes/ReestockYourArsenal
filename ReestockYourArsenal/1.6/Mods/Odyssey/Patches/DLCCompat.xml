@@ -1,0 +1,22 @@
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/SoundDef[defName="Reestock_Shot_BeamPeeler"]/subSounds</xpath>
+			<value>
+				<subSounds>
+					<li>
+						<grains>
+							<li Class="AudioGrain_Folder">
+								<clipFolderPath>Weapon/Beamgraser/Fire</clipFolderPath>
+							</li>
+						</grains>
+						<volumeRange>30</volumeRange>
+					</li>
+				</subSounds>
+			</value>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,95 @@
+﻿<Defs>
+
+  <!--Welding gun-->
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Reestock_Gun_WeldingGun</defName>
+    <label>welding gun</label>
+    <description>A handheld construction tool with a powerful short-range blowtorch that can singe nearby foes. It has a chance to set targets on fire and slightly increases the construction speed.</description>
+    <relicChance>0</relicChance>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/WeldingGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>48000</WorkToMake>
+      <Mass>3.4</Mass>
+      <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <equippedStatOffsets>
+      <ConstructionSpeed>0.05</ConstructionSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Machining</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_ShootBeam</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <warmupTime>0.3</warmupTime>
+        <range>2.7</range>
+        <beamFullWidthRange>2</beamFullWidthRange>
+        <burstShotCount>5</burstShotCount>
+        <showBurstShotStats>false</showBurstShotStats>
+        <beamWidth>1</beamWidth>
+        <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+        <beamDamageDef>Reestock_Blowtorch</beamDamageDef>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <soundCastBeam>Reestock_WeldingGun_Shooting</soundCastBeam>
+        <!--<beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>-->
+        <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+        <beamMaxDeviation>1</beamMaxDeviation>
+        <beamCurvature>0.3</beamCurvature>
+        <beamMoteDef>Reestock_Mote_WeldingBeamBase</beamMoteDef>
+        <beamEndEffecterDef>Reestock_WeldingBeam_End</beamEndEffecterDef>
+        <beamChanceToStartFire>0</beamChanceToStartFire>
+        <beamChanceToAttachFire>0.15</beamChanceToAttachFire>
+        <beamFireSizeRange>0.1~0.4</beamFireSizeRange>
+        <beamStartOffset>0.65</beamStartOffset>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>ToolDecent</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+      <li Class="VEF.Things.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

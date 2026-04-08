@@ -1,0 +1,27 @@
+﻿<Defs>
+  <ThingDef ParentName="MoteBase">
+    <defName>Reestock_Mote_BeamPeelerLaser</defName>
+    <thingClass>MoteDualAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <fadeOutTime>0.3</fadeOutTime>
+      <solidTime>1.4</solidTime>
+      <rotateTowardsTarget>True</rotateTowardsTarget>
+      <scaleToConnectTargets>True</scaleToConnectTargets>
+    </mote>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <texPath>Things/Mote/GraserBeam</texPath>
+      <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+      <shaderType>MoteBeam</shaderType>
+      <shaderParameters>
+        <_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
+        <_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
+        <_ScrollSpeedA>-5</_ScrollSpeedA>
+        <_ScrollSpeedB>-5</_ScrollSpeedB>
+        <_Intensity>4</_Intensity>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,19 @@
+<ModMetaData>
+	<name>Reestock Your Arsenal</name>
+	<author>Reestock</author>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<packageId>Reestock.Arsenal</packageId>
+	<description></description>
+	<modDependencies>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2023507013</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+	</loadAfter>
+</ModMetaData>

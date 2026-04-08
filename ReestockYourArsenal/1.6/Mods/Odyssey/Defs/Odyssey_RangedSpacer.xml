@@ -1,0 +1,168 @@
+﻿<Defs>
+
+  <!--Beam Peeler-->
+
+  <ThingDef ParentName="BaseHumanMakeableGun" Name="Reestock_Gun_BeamPeeler">
+    <defName>Reestock_Gun_BeamPeeler</defName>
+    <label>beam peeler</label>
+    <description>An ultratech weapon that delivers a gamma ray beam precisely over a long distance. The high-energy gamma beams can pierce thick armor.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/BeamPeeler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>RangedHeavy</li>
+      <li>Ultratech</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>15000</WorkToMake>
+      <Mass>10</Mass>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.8</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.95</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Plasteel>50</Plasteel>
+      <Steel>40</Steel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>BeamWeapons</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>9</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>SniperRifle</li>
+      <li>UltratechGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Reestock_Bullet_BeamPeeler</defaultProjectile>
+        <warmupTime>4</warmupTime>
+        <range>38.9</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <soundCast>Reestock_Shot_BeamPeeler</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <aimingChargeMote>Mote_BeamRepeater_Charge</aimingChargeMote>
+        <aimingChargeMoteOffset>1.4</aimingChargeMoteOffset>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Reestock_Bullet_BeamPeeler</defName>
+    <label>beam peeler laser</label>
+    <thingClass>Beam</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>BeamBypassShields</damageDef>
+      <damageAmountBase>35</damageAmountBase>
+      <beamMoteDef>Reestock_Mote_BeamPeelerLaser</beamMoteDef>
+      <beamStartOffset>0.9</beamStartOffset>
+      <armorPenetrationBase>0.7</armorPenetrationBase>
+    </projectile>
+  </ThingDef>
+
+  <SoundDef>
+    <defName>Reestock_Shot_BeamPeeler</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Weapon/BeamRepeater/Beam_Repeater_Shot</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <ThingDef ParentName="Reestock_Gun_BeamPeeler">
+    <defName>Reestock_Gun_BeamPeeler_Unique</defName>
+    <label>unique beam peeler</label>
+    <description>A beam peeler with customized parts.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/UniqueWeapons/BeamPeeler</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <!-- Can't inherit comps because we need to override CompEquippable with CompEquippableAbility -->
+    <!-- If changes are made to the comps of BaseHumanMakeableGun or parents then they will need to be replicated here -->
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" /> <!-- Props are populated by traits -->
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li Class="CompProperties_Biocodable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>Ranged</li>
+          <li>Gun</li>
+          <li>Scoped</li>
+          <li>BeamWeapon</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>peeler</li>
+          <li>beam peeler</li>
+          <li>beamgun</li>
+        </namerLabels>
+      </li>
+    </comps>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" >
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>Reestock_Gun_BeamPeeler</ThingDef>
+    </descriptionHyperlinks>
+  </ThingDef>
+</Defs>
